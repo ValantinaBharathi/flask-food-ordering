@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('menu') }}">Menu</a>
+        <a href="{{ url_for('cart') }}">My Cart</a>
+    </nav>
+
+    <div class="container">
+        <h1>My Cart</h1>
+        {% if cart_items %}
+            <div>
+                {% for name, item, quantity in cart_items %}
+                    <div class="cart-item">
+                        <div class="cart-item-details">
+                            <h2>{{ name }}</h2>
+                            <p>Price: ₹{{ item['price'] }}</p>
+                            <p>Quantity: {{ quantity }}</p>
+                        </div>
+                        <form action="{{ url_for('update_cart', name=name) }}" method="POST">
+                            <input type="number" name="quantity" value="{{ quantity }}" min="0">
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="summary">
+                <p>Subtotal: ₹{{ subtotal }}</p>
+                <p>Delivery Fee: ₹{{ delivery_fee }}</p>
+                <p>Total: ₹{{ total }}</p>
+
+                <form action="{{ url_for('checkout') }}" method="POST">
+                    <button class="checkout-btn" type="submit">Checkout</button>
+                </form>
+            </div>
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

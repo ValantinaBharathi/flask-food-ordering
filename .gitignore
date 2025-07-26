@@ -1,0 +1,64 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask/WSGI
+instance/
+*.db
+*.sqlite3
+
+# Environment variables
+.env
+
+# Flask session or uploads
+*.log
+*.bak
+*.swp
+*.tmp
+*.pid
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python virtual environment
+venv/
+ENV/
+env/
+.venv/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# PyMongo local DB dump (if used)
+dump/
+
+# Coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+test-output/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Build and dist
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec

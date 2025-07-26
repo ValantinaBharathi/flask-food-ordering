@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <a href="{{ url_for('menu') }}">Menu</a>
+    <a href="{{ url_for('cart') }}">My Cart</a>
+</nav>
+
+<div class="container">
+    
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-messages">
+{% for category, message in messages %}
+<div class="flash {{ category }}">{{ message }}</div>
+{% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<h1 class="restaurant-name">Vanaran Chinese Restaurant</h1>
+<blockquote class="quote">
+<p>Youwansum?</p>
+</blockquote>
+<h2>Menu</h2>
+<div>
+{% for item in items %}
+<div class="menu-item">
+<img src="{{ url_for('static', filename='images/' + item['image']) }}" alt="{{ item['name'] }}">
+<div>
+<h2>{{ item['name'] }}</h2>
+<p>{{ item['description'] }}</p>
+<p>Price: ₹{{ item['price'] }}</p>
+<p>Stock: {{ item['stock'] }} available</p> <!-- Display available stock -->
+</div>
+<form action="{{ url_for('add_to_cart', name=item['name']) }}" method="POST">
+<input type="number" name="quantity" value="1" min="1" max="{{ item['stock'] }}">
+<button type="submit">Add to Cart</button>
+</form>
+</div>
+{% endfor %}
+</div>
+</div>
+
+<style>
+.flash-messages {
+   margin: 20px;
+}
+.flash {
+   padding: 10px;
+   margin-bottom: 15px;
+   border-radius: 5px;
+}
+.flash.error {
+   background-color: #f8d7da; /* Light red background */
+   color: #721c24; /* Dark red text */
+}
+.flash.success {
+   background-color: #d4edda; /* Light green background */
+   color: #155724; /* Dark green text */
+}
+</style>
+
+</body>
+</html>

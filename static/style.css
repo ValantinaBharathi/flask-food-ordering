@@ -1,0 +1,189 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c; /* Dark background for the entire page */
+    color: #f5f5f5; /* Light text color for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+nav {
+    background-color: #343a40; /* Dark navbar */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    position: relative; /* Enables absolute positioning of pseudo-element */
+    max-width: 1200px; /* Width for better space utilization */
+    margin: 50px auto; /* Center the container */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+    overflow: hidden; /* Clipping for pseudo-element */
+}
+
+/* Pseudo-element for Background Image */
+.container::before {
+    content: ""; /* Create a pseudo-element */
+    position: absolute; /* Position absolutely within the container */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    bottom: 0; /* Stretch to the bottom */
+    background-image: url('../static/images/bgg.jpg'); /* Path to your background image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    opacity: 0.3; /* Adjust the opacity (0 to 1) */
+    z-index: -1; /* Send behind other content */
+}
+
+/* Centered Styles for Restaurant Name */
+.restaurant-name {
+    text-align: center; /* Center align text */
+    font-size: 2.5rem; /* Font size for restaurant name */
+    font-family: 'Georgia', serif; /* Different font for restaurant name */
+    margin: 20px 0; /* Margin for spacing */
+}
+
+/* Centered Styles for Quote */
+.quote {
+    text-align: center; /* Center align quote */
+    font-size: 1.5rem; /* Medium size for quote */
+    font-family: 'Arial', sans-serif; /* Different font for quote */
+    margin: 10px 0; /* Margin for spacing */
+    color: #e0e0e0; /* Slightly lighter for better readability */
+}
+
+/* Menu Items */
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px; /* Padding for better spacing */
+    border-radius: 8px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.15); /* Light background for items */
+}
+
+.menu-item img {
+    width: 150px; /* Image size */
+    height: 150px; /* Image height */
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.menu-item h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.menu-item p {
+    margin: 5px 0;
+    color: #e0e0e0; /* Slightly lighter for better readability */
+}
+
+.menu-item form {
+    margin-left: auto;
+}
+
+/* Cart Page */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px; /* Padding for cart items */
+    border-bottom: 1px solid #555; /* Darker bottom border */
+    background-color: rgba(255, 255, 255, 0.15); /* Light background for cart items */
+}
+
+.cart-item h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.cart-item form {
+    display: flex;
+    align-items: center;
+}
+
+input[type="number"] {
+    width: 50px; /* Input width */
+    margin-right: 10px;
+}
+
+/* Button Styles */
+button {
+    background-color: #28a745; /* Button color */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #218838; /* Darker button on hover */
+}
+
+/* Summary Section */
+.summary {
+    margin-top: 20px;
+    text-align: right; /* Right align summary */
+}
+
+.summary p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    background-color: #007bff; /* Checkout button color */
+}
+
+.checkout-btn:hover {
+    background-color: #0056b3; /* Darker on hover */
+}
+
+/* Blockquote for Quotes */
+blockquote {
+    font-style: italic;
+    color: #f5f5f5; /* Light color for quote */
+    margin: 20px 0;
+    padding: 10px;
+    border-left: 4px solid #007bff; /* Blue left border */
+}
+
+/* Fade effect on buttons */
+button:active {
+    opacity: 0.7; /* Change opacity on click */
+}
+
+/* Continue Browsing Link */
+.continue-browsing {
+    display: inline-block; /* Inline block for centering */
+    margin-top: 20px; /* Space above */
+    color: #007bff; /* Change color for the link */
+    font-size: 1.2rem; /* Font size for the link */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color change */
+}
+
+.continue-browsing:hover {
+    color: #0056b3; /* Darker color on hover */
+}
